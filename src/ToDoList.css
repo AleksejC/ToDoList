@@ -1,0 +1,41 @@
+body {
+    background-color: #1e1e1e;
+    color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.mainHeader {
+    font-size: 40px;
+    align-self: center;
+}
+.columnsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+.columnHeader {
+    font-size: 37px;
+    text-align: center;
+    background: #403B3B; width: 450px; height: 55px;
+    border: 5px solid #403B3B;
+    border-radius: 25px 25px 0 0;
+    margin-bottom: 0;
+}
+.column {
+    background: #D9D9D9; width: 450px; height: 720px;
+    border: #D9D9D9 solid 5px;
+}
+.addButton {
+    background: #777373; width: 110px; height: 110px;
+    border: #777373 5px solid;
+    border-radius: 60px;
+    color: white;
+    font-size: 90px;
+    position: absolute;
+    margin-left: 1620px;
+    margin-top: 870px;
+}
+
