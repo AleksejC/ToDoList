@@ -161,3 +161,6 @@ hr {
     display: flex;
     justify-content: space-between;
 }
+button {
+    cursor: pointer;
+}
