@@ -8,17 +8,17 @@ body {
     display: flex;
     flex-direction: column;
 }
-.mainHeader {
+.main-header {
     font-size: 40px;
     align-self: center;
 }
-.columnsContainer {
+.columns-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 25px;
 }
-.columnHeader {
+.column-header {
     font-size: 37px;
     text-align: center;
     background: #403B3B; width: 450px; height: 55px;
@@ -30,7 +30,7 @@ body {
     background: #D9D9D9; width: 450px; height: 720px;
     border: #D9D9D9 solid 5px;
 }
-.addButton {
+.add-new-task-button {
     background: #777373; width: 110px; height: 110px;
     border: #777373 5px solid;
     border-radius: 60px;
@@ -40,7 +40,7 @@ body {
     margin-left: 1620px;
     margin-top: 870px;
 }
-.newTaskBox {
+.new-task-box {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -66,25 +66,27 @@ body {
     flex-direction: column;
     border-radius: 0 0 25px 25px;
 }
-.contentDiv {
+.content-div {
     margin-left: 45px;
 }
-.newTaskNameInput {
+.new-task-name-input {
     width: 500px;
 }
-p {
+label {
+    display: flex;
     color: black;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 0;
+    position: relative;
 }
-.descriptionInput {
+.description-input {
     width: 1000px;
     height: 240px;
     background-color: #d9d9d9;
     border-radius: 4px 4px 4px 4px;
 }
-.modalButtons {
+.modal-button {
     background-color: #403B3B;
     color: white;
     font-size: 30px;
@@ -95,7 +97,7 @@ p {
     margin-right: 45px;
     border-radius: 5px 5px 5px 5px;
 }
-.modalButtonsContainer {
+.modal-buttons-container {
     margin-top: 0;
     margin-bottom: 10px;
     display: flex;
@@ -108,4 +110,54 @@ hr {
     margin-top: 30px;
     margin-bottom: 0;
     width: 1092px;
+}
+.confirm-box {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    background: white;
+    border: #403B3B 20px groove;     /* Find a better border style */
+    border-radius: 25px 25px 25px 25px;
+}
+.confirm-div {
+    margin-left: 100px;
+    margin-top: 30px;
+}
+.confirm-title-div {
+    font-weight: bold;
+    font-size: 35px;
+    color: #ae5b02;
+}
+.confirm-content-div {
+    color: black;
+    font-size: 30px;
+    margin-left: -70px;
+    margin-right: 10px;
+}
+.warning-icon {
+    position: absolute;
+    top: 7%;
+    left: 4%;
+}
+.confirm-button {
+    display: flex;
+    width: 125px;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    background: #403B3B;
+}
+.confirm-buttons {
+    margin-top: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
 }
