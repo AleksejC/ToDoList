@@ -1,7 +1,9 @@
 body {
     background-color: #1e1e1e;
     color: white;
+    justify-content: center;
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -38,4 +40,72 @@ body {
     margin-left: 1620px;
     margin-top: 870px;
 }
-
+.newTaskBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 57%;
+    height: 650px;
+}
+.title {
+    background: #403B3B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    border-radius: 25px 25px 0 0;
+}
+.content {
+    background-color: white;
+    height: 610px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 0 0 25px 25px;
+}
+.contentDiv {
+    margin-left: 45px;
+}
+.newTaskNameInput {
+    width: 500px;
+}
+p {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+.descriptionInput {
+    width: 1000px;
+    height: 240px;
+    background-color: #d9d9d9;
+    border-radius: 4px 4px 4px 4px;
+}
+.modalButtons {
+    background-color: #403B3B;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    margin-left: 45px;
+    margin-right: 45px;
+    border-radius: 5px 5px 5px 5px;
+}
+.modalButtonsContainer {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1092px;
+    height: 60px;
+}
+hr {
+    margin-top: 30px;
+    margin-bottom: 0;
+    width: 1092px;
+}
