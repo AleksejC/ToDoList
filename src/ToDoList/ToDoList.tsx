@@ -84,7 +84,9 @@ export const ToDoList = () => {
                     </Typography>
                     <Typography id='modal-modal-description' className='content'>
                         <div className='content-div'>
-                            <label htmlFor='standard-helper-text'>New task name</label>
+                            <div>
+                                <label htmlFor='standard-helper-text'>New task name</label>
+                            </div>
                             <TextField
                                 onChange={event => setCurrentTaskName(event.currentTarget.value)}
                                 className='new-task-name-input'
@@ -93,7 +95,9 @@ export const ToDoList = () => {
                                 variant="standard"
                                 size='medium'
                             />
-                            <label htmlFor='outlined-multiline-static'>Description</label>
+                            <div>
+                                <label htmlFor='outlined-multiline-static'>Description</label>
+                            </div>
                             <TextField
                                 onChange={event => setCurrentTaskDescription(event.currentTarget.value)}
                                 className='description-input'
