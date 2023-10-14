@@ -73,7 +73,6 @@ body {
     width: 500px;
 }
 label {
-    display: flex;
     color: black;
     font-weight: bold;
     font-size: 20px;
@@ -112,8 +111,6 @@ hr {
     width: 1092px;
 }
 .confirm-box {
-    display: flex;
-    flex-direction: column;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -145,7 +142,6 @@ hr {
     left: 4%;
 }
 .confirm-button {
-    display: flex;
     width: 125px;
     height: 40px;
     justify-content: space-around;
