@@ -1,29 +1,46 @@
-import React from 'react';
-import {useCallback} from "react";
-import {useState} from "react";
+import React, {useCallback, useState} from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import './ToDoList.css';
+import {Status, Task} from '../Task/types';
+import {TaskCard} from "../Task/TaskCard";
 
 export const ToDoList = () => {
     const [isAddTaskModal, setIsAddTaskModal] = useState(false);
     const [isConfirmModal, setIsConfirmModal] = useState(false);
-    const [toDoTasks, setToDoTasks] = useState([]);
+
+    const [currentTaskName, setCurrentTaskName] = useState('');
+    const [currentTaskDescription, setCurrentTaskDescription] = useState('');
+
+    const [toDoTasks, setToDoTasks] = useState<Task[]>([]);
     const [inProgressTasks, setInProgressTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
 
     const toggleAddNewTaskModal = useCallback(() => setIsAddTaskModal(!isAddTaskModal), [isAddTaskModal])
     const toggleCancelConfirmModal = useCallback(() => setIsConfirmModal(!isConfirmModal), [isConfirmModal])
+
+    const clearAllInputs = () => {
+        setCurrentTaskName('');
+        setCurrentTaskDescription('');
+    }
+
     const closeAllModals = () => {
         toggleAddNewTaskModal();
         toggleCancelConfirmModal();
+        clearAllInputs()
     }
 
     const onSaveButtonClick = () => {
-
+        toggleAddNewTaskModal();
+        setToDoTasks([...toDoTasks, {
+            name: currentTaskName,
+            description: currentTaskDescription,
+            status: Status.TO_DO,
+        }]);
+        clearAllInputs()
     }
 
     return (
@@ -34,6 +51,9 @@ export const ToDoList = () => {
                 <div className='header-and-column'>
                     <h1 className='column-header'>TO DO</h1>
                     <div className='column'>
+                        {toDoTasks.map((it) => {
+                            return <TaskCard task={it} />
+                        })}
                     </div>
                 </div>
 
@@ -66,26 +86,27 @@ export const ToDoList = () => {
                         <div className='content-div'>
                             <label htmlFor='standard-helper-text'>New task name</label>
                             <TextField
+                                onChange={event => setCurrentTaskName(event.currentTarget.value)}
                                 className='new-task-name-input'
                                 id="standard-helper-text"
-                                defaultValue="Task 1"
-                                helperText="0/100 characters"
+                                helperText={`${currentTaskName.length}/100 characters`}
                                 variant="standard"
                                 size='medium'
                             />
                             <label htmlFor='outlined-multiline-static'>Description</label>
                             <TextField
+                                onChange={event => setCurrentTaskDescription(event.currentTarget.value)}
                                 className='description-input'
                                 id="outlined-multiline-static"
                                 multiline
                                 rows={9}
-                                helperText='0/1000 characters'
+                                helperText={`${currentTaskDescription.length}/1000 characters`}
                             />
                         </div>
                             <hr/>
                             <div className='modal-buttons-container'>
                                 <button className='modal-button' onClick={toggleCancelConfirmModal}>Cancel</button>
-                                <button className='modal-button'>Save</button>
+                                <button className='modal-button' onClick={onSaveButtonClick}>Save</button>
                             </div>
                     </Typography>
                 </Box>
