@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {ChangeEvent, useCallback, useState} from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -30,8 +30,10 @@ export const ToDoList = () => {
     const closeAllModals = () => {
         toggleAddNewTaskModal();
         toggleCancelConfirmModal();
-        clearAllInputs()
+        clearAllInputs();
     }
+
+    const id = parseFloat(Math.random().toFixed(4));
 
     const onSaveButtonClick = () => {
         toggleAddNewTaskModal();
@@ -39,9 +41,16 @@ export const ToDoList = () => {
             name: currentTaskName,
             description: currentTaskDescription,
             status: Status.TO_DO,
+            id: id
         }]);
         clearAllInputs()
     }
+
+    const enterTaskName = useCallback((event: ChangeEvent<HTMLInputElement>) =>
+        setCurrentTaskName(event.currentTarget.value),[currentTaskName]);
+
+    const enterTaskDescription = useCallback((event: ChangeEvent<HTMLInputElement>) =>
+        setCurrentTaskDescription(event.currentTarget.value),[currentTaskDescription]);
 
     return (
         <div className='container'>
@@ -51,9 +60,12 @@ export const ToDoList = () => {
                 <div className='header-and-column'>
                     <h1 className='column-header'>TO DO</h1>
                     <div className='column'>
-                        {toDoTasks.map((it) => {
-                            return <TaskCard task={it} />
-                        })}
+                        {toDoTasks.map((it) =>
+                            <TaskCard
+                                task={it}
+                                key={it.id}
+                            />
+                        )}
                     </div>
                 </div>
 
@@ -88,7 +100,7 @@ export const ToDoList = () => {
                                 <label htmlFor='standard-helper-text'>New task name</label>
                             </div>
                             <TextField
-                                onChange={event => setCurrentTaskName(event.currentTarget.value)}
+                                onChange={enterTaskName}
                                 className='new-task-name-input'
                                 id="standard-helper-text"
                                 helperText={`${currentTaskName.length}/100 characters`}
@@ -99,7 +111,7 @@ export const ToDoList = () => {
                                 <label htmlFor='outlined-multiline-static'>Description</label>
                             </div>
                             <TextField
-                                onChange={event => setCurrentTaskDescription(event.currentTarget.value)}
+                                onChange={enterTaskDescription}
                                 className='description-input'
                                 id="outlined-multiline-static"
                                 multiline
