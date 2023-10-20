@@ -2,7 +2,7 @@ export type Task = {
     name: string;
     description: string;
     status: Status;
-    id: number;
+    id: number | string;
 }
 
 export enum Status {

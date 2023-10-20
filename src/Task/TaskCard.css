@@ -10,9 +10,8 @@
 }
 .task-id {
     text-decoration-line: underline;
-    position: absolute;
-    padding-right: 335px;
-    padding-bottom: 170px;
+    align-self: flex-start;
+    padding-left: 10px;
 }
 .task-name {
     font-size: 25px;

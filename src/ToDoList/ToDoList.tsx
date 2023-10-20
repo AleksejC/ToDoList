@@ -19,6 +19,8 @@ export const ToDoList = () => {
     const [inProgressTasks, setInProgressTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
 
+    const [taskCounter, setTaskCounter] = useState(1);
+
     const toggleAddNewTaskModal = useCallback(() => setIsAddTaskModal(!isAddTaskModal), [isAddTaskModal])
     const toggleCancelConfirmModal = useCallback(() => setIsConfirmModal(!isConfirmModal), [isConfirmModal])
 
@@ -33,10 +35,11 @@ export const ToDoList = () => {
         clearAllInputs();
     }
 
-    const id = parseFloat(Math.random().toFixed(4));
+    const id = 'T-' + taskCounter;
 
     const onSaveButtonClick = () => {
         toggleAddNewTaskModal();
+        setTaskCounter(taskCounter + 1);
         setToDoTasks([...toDoTasks, {
             name: currentTaskName,
             description: currentTaskDescription,
@@ -60,12 +63,12 @@ export const ToDoList = () => {
                 <div className='header-and-column'>
                     <h1 className='column-header'>TO DO</h1>
                     <div className='column'>
-                        {toDoTasks.map((it) =>
+                        {toDoTasks.map((it) => (
                             <TaskCard
                                 task={it}
                                 key={it.id}
                             />
-                        )}
+                        ))}
                     </div>
                 </div>
 
