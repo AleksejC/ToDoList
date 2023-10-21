@@ -1,0 +1,28 @@
+.task-window {
+    min-height: 200px;
+    width: 400px;
+    background: #777373;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+.task-id {
+    text-decoration-line: underline;
+    align-self: flex-start;
+    padding-left: 10px;
+}
+.task-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+.task-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 355px;
+    height: 130px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
